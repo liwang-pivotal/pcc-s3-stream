@@ -25,6 +25,6 @@ This demo aims to show how Spring Cloud Dataflow is used to collect event messag
 **dataflow:> stream create test --definition "pcc-demo --pcc.cache.region-name=transactions | s3-demo --s3.count=100 --s3.access-key=xxx --s3.secret-key=xxx --s3.bucket-name=xxx --s3.bucket-region=us-east-1" --deploy**
 
 ### Step #6 - start to load fake transactions
-1. redirect to "transaction-dataloader" folder, build this maven project
+1. redirect to "transaction-dataloader" repository (*https://github.com/liwang-pivotal/pcc-dataloader*), build this maven project
 2. deploy this app into CF environment
 3. use the UI to load fake data, input parameter is the batch size to load (100 is recommended)
