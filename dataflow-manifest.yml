@@ -1,0 +1,27 @@
+---
+applications:
+- name: dataflow-server
+  memory: 4G
+  disk_quota: 4G
+  random-route: true
+  instances: 1
+  timeout: 180
+  buildpack: java_buildpack_offline 
+  path: spring-cloud-dataflow-server-cloudfoundry-1.2.0.RC1.jar
+  services:
+   - test-scdf-rmq
+   - test-scdf-mysql
+   - test-pcc
+  env:
+    SPRING_APPLICATION_NAME: scdf-server
+    SPRING_CLOUD_DEPLOYER_CLOUDFOUNDRY_URL: xxxxxxxxxxxxxxx
+    SPRING_CLOUD_DEPLOYER_CLOUDFOUNDRY_ORG: xxxxx
+    SPRING_CLOUD_DEPLOYER_CLOUDFOUNDRY_SPACE: xxxxx
+    SPRING_CLOUD_DEPLOYER_CLOUDFOUNDRY_DOMAIN: xxxxx
+    SPRING_CLOUD_DEPLOYER_CLOUDFOUNDRY_USERNAME: xxxxx
+    SPRING_CLOUD_DEPLOYER_CLOUDFOUNDRY_PASSWORD: xxxxxxxxxxxxxxx
+    MAVEN_REMOTE_REPOSITORIES_REPO1_URL: https://repo.spring.io/libs-release
+    SPRING_CLOUD_DEPLOYER_CLOUDFOUNDRY_STREAM_SERVICES: test-scdf-rmq,test-pcc
+    SPRING_CLOUD_DEPLOYER_CLOUDFOUNDRY_TASK_SERVICES: test-scdf-mysql
+    SPRING_CLOUD_DEPLOYER_CLOUDFOUNDRY_SKIP_SSL_VALIDATION: true
+    SPRING_CLOUD_DEPLOYER_CLOUDFOUNDRY_STREAM_APITIMEOUT: 360
